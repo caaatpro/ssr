@@ -1,0 +1,11 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: ssr
+    ports:
+      - 3000:3000
+     volumes:
+       - ./.ssr:/app/cache
