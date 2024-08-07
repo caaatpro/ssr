@@ -12,13 +12,6 @@ Nginx config
             return 301 $1;
         }
 
-        rewrite ^/news/$ /blog/ permanent;
-        rewrite ^/news-mass-media/$ /blog/ permanent;
-        rewrite ^/news-ecom-delivery/$ /blog/ permanent;
-        rewrite ^/news-company/$ /blog/ permanent;
-        rewrite ^/courier-delivery-cfo-msk/$ /uslugi/ permanent;
-        rewrite ^/courier-delivery-cfo-spb/$ /uslugi/ permanent;
-
         set $isbot 0;
         if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|yandex|yeti|yodaobot|gigabot|ia_archiver|bot|curl|wget|facebookexternalhit|twitterbot|developers\.google\.com") {
             set $isbot 1;
@@ -41,7 +34,7 @@ Nginx config
     }
 
     location /render {
-        proxy_pass http://dalli-ssr:3000;
+        proxy_pass http://127.0.0.1:3000;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
