@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "docker:release": "docker build . -f ./Dockerfile --no-cache -t nexus.caaat.pro/repository/docker-projects/caaat/ssr:v1.0.0 && docker push nexus.caaat.pro/repository/docker-projects/caaat/ssr:v1.0.0"
   },
   "author": "",
   "license": "ISC",
